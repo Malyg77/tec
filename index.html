@@ -7,9 +7,7 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#4285f4">
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-
+    
     <style>
         :root {
             --primary-color: #4285f4;
@@ -19,14 +17,14 @@
             --light-color: #f8f9fa;
             --dark-color: #343a40;
             --gray-color: #6c757d;
-
+            
             --bg-color: #f5f7fa;
             --text-color: #333;
             --card-bg: #fff;
             --sidebar-bg: #f8f9fa;
             --border-color: #e0e0e0;
         }
-
+        
         .dark-mode {
             --bg-color: #121212;
             --text-color: #f5f5f5;
@@ -34,7 +32,7 @@
             --sidebar-bg: #2d2d2d;
             --border-color: #444;
         }
-
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
@@ -44,162 +42,7 @@
             line-height: 1.6;
             transition: background-color 0.3s, color 0.3s;
         }
-
-        /* Login container styles */
-        .login-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: var(--bg-color);
-        }
-
-        .login-card {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-        }
-
-        .login-card h1 {
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-
-        .login-card p {
-            margin-bottom: 20px; /* Ajustado para el nuevo layout */
-            color: var(--gray-color);
-        }
         
-        /* Estilos para los inputs del login tradicional */
-        .login-form-group input {
-            width: calc(100% - 20px); /* Ajuste para padding */
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            font-size: 16px;
-            background-color: var(--card-bg);
-            color: var(--text-color);
-        }
-
-        .login-form-group button {
-            width: 100%;
-            padding: 10px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .login-form-group button:hover {
-            background-color: #3367d6;
-        }
-
-        #login-error {
-            color: var(--danger-color);
-            margin-top: 10px;
-            font-size: 14px;
-        }
-
-        .separator {
-            margin: 25px 0;
-            position: relative;
-            text-align: center;
-            color: var(--gray-color);
-        }
-
-        .separator::before,
-        .separator::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 40%;
-            height: 1px;
-            background-color: var(--border-color);
-        }
-
-        .separator::before {
-            left: 0;
-        }
-
-        .separator::after {
-            right: 0;
-        }
-
-        .g_id_signin {
-            margin: 0 auto 20px auto; /* Ajuste de margen inferior */
-            width: fit-content;
-        }
-
-        .user-info {
-            display: none; /* Se muestra con JS */
-            margin-top: 20px;
-            padding: 15px;
-            background-color: var(--sidebar-bg);
-            border-radius: 8px;
-            display: flex; /* Para flexbox, se activará con JS */
-            align-items: center;
-            gap: 15px;
-            flex-direction: column; /* Cambiado a columna para el botón de cerrar sesión */
-        }
-        .user-info.google-logged-in {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .user-info img {
-            width: 60px; /* Aumentado el tamaño */
-            height: 60px;
-            border-radius: 50%;
-            border: 2px solid var(--primary-color); /* Borde para destacar */
-        }
-
-        .user-details {
-            text-align: center; /* Centrar texto */
-        }
-
-        .user-details h3 {
-            margin: 0;
-            font-size: 1.2em;
-        }
-
-        .user-details p {
-            margin: 5px 0 0;
-            color: var(--gray-color);
-            font-size: 0.9em;
-        }
-
-        .logout-btn {
-            background-color: var(--danger-color);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-top: 15px;
-            transition: all 0.3s;
-        }
-
-        .logout-btn:hover {
-            background-color: #d33425;
-        }
-
-        /* Main app container - initially hidden */
-        .app-container {
-            display: none; /* Se muestra con JS */
-            width: 100%;
-            height: 100vh;
-            overflow-y: auto;
-        }
-
         .container {
             max-width: 1200px;
             margin: 20px auto;
@@ -209,27 +52,26 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: background-color 0.3s;
         }
-
-        /* Rest of your existing styles... */
+        
         .dashboard {
             display: grid;
             grid-template-columns: 250px 1fr;
             gap: 20px;
         }
-
+        
         .sidebar {
             background-color: var(--sidebar-bg);
             border-radius: 8px;
             padding: 20px;
             transition: background-color 0.3s;
         }
-
+        
         .main-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
-
+        
         .card {
             background-color: var(--card-bg);
             border-radius: 8px;
@@ -237,13 +79,13 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             transition: background-color 0.3s;
         }
-
+        
         h1, h2, h3 {
             color: var(--text-color);
             margin-top: 0;
             transition: color 0.3s;
         }
-
+        
         h1 {
             font-size: 28px;
             text-align: center;
@@ -251,7 +93,7 @@
             position: relative;
             padding-bottom: 10px;
         }
-
+        
         h1::after {
             content: '';
             position: absolute;
@@ -263,7 +105,7 @@
             background: var(--primary-color);
             border-radius: 3px;
         }
-
+        
         .menu-item {
             padding: 12px 15px;
             margin: 5px 0;
@@ -275,62 +117,62 @@
             gap: 10px;
             color: var(--text-color);
         }
-
+        
         .menu-item:hover {
             background-color: rgba(0, 0, 0, 0.1);
         }
-
+        
         .menu-item.active {
             background-color: var(--primary-color);
             color: white;
         }
-
+        
         .stat-card {
             text-align: center;
             padding: 20px;
         }
-
+        
         .stat-value {
             font-size: 36px;
             font-weight: bold;
             margin: 10px 0;
             color: var(--primary-color);
         }
-
+        
         .stat-change {
             font-size: 14px;
             color: var(--gray-color);
         }
-
+        
         .stat-change.up {
             color: var(--secondary-color);
         }
-
+        
         .stat-change.down {
             color: var(--danger-color);
         }
-
+        
         .week-calendar {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 10px;
             text-align: center;
         }
-
+        
         .day {
             padding: 10px;
             border-radius: 6px;
         }
-
+        
         .day-count {
             font-weight: bold;
             margin-top: 5px;
         }
-
+        
         .upcoming-events {
             grid-column: span 2;
         }
-
+        
         .event-item {
             padding: 10px;
             margin: 10px 0;
@@ -340,7 +182,7 @@
             position: relative;
             transition: background-color 0.3s;
         }
-
+        
         .event-actions {
             position: absolute;
             right: 10px;
@@ -348,7 +190,7 @@
             display: flex;
             gap: 5px;
         }
-
+        
         .event-actions button {
             padding: 3px 6px;
             font-size: 12px;
@@ -356,38 +198,37 @@
             border-radius: 3px;
             cursor: pointer;
         }
-
+        
         .delete-btn {
             background-color: var(--danger-color);
             color: white;
         }
-
+        
         .edit-btn {
             background-color: var(--warning-color);
             color: var(--dark-color);
         }
-
+        
         /* Nuevos estilos para las vistas */
         .view {
             display: none;
             animation: fadeIn 0.3s ease;
         }
-
+        
         .view.active {
             display: block;
         }
-
+        
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
+        
         .form-group {
             margin-bottom: 15px;
         }
-
-        input[type="text"], input[type="email"], input[type="password"],
-        input[type="date"], input[type="time"], select, textarea {
+        
+        input, select, textarea {
             width: 100%;
             padding: 10px;
             border: 1px solid var(--border-color);
@@ -396,10 +237,9 @@
             background-color: var(--card-bg);
             color: var(--text-color);
             transition: border-color 0.3s, background-color 0.3s, color 0.3s;
-            box-sizing: border-box; /* Para que el padding no aumente el width */
         }
-
-        button:not(.logout-btn) { /* Excluir el botón de logout ya estilizado */
+        
+        button {
             padding: 10px 15px;
             background-color: var(--primary-color);
             color: white;
@@ -408,22 +248,22 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-
-        button:not(.logout-btn):hover {
+        
+        button:hover {
             background-color: #3367d6;
         }
-
+        
         .event-form {
             max-width: 600px;
             margin: 0 auto;
         }
-
+        
         .categories-list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 15px;
         }
-
+        
         .category-card {
             padding: 15px;
             border-radius: 8px;
@@ -431,12 +271,12 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-
+        
         .category-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-
+        
         .notification-item {
             padding: 15px;
             margin-bottom: 10px;
@@ -447,14 +287,14 @@
             align-items: center;
             transition: background-color 0.3s;
         }
-
+        
         .assistant-message {
             padding: 15px;
             margin: 10px 0;
             border-radius: 8px;
             background-color: rgba(0, 0, 0, 0.1);
         }
-
+        
         .user-message {
             padding: 15px;
             margin: 10px 0;
@@ -463,7 +303,7 @@
             color: white;
             text-align: right;
         }
-
+        
         .settings-option {
             padding: 15px;
             margin-bottom: 10px;
@@ -471,7 +311,7 @@
             background-color: var(--sidebar-bg);
             transition: background-color 0.3s;
         }
-
+        
         /* Alarma */
         .alarm-overlay {
             position: fixed;
@@ -489,7 +329,7 @@
             text-align: center;
             animation: pulseBackground 1s infinite;
         }
-
+        
         .alarm-content {
             background-color: var(--danger-color);
             padding: 30px;
@@ -497,49 +337,49 @@
             max-width: 500px;
             width: 90%;
         }
-
+        
         @keyframes pulseBackground {
             0% { background-color: rgba(0,0,0,0.8); }
             50% { background-color: rgba(0,0,0,0.9); }
             100% { background-color: rgba(0,0,0,0.8); }
         }
-
+        
         /* Configuración */
         .settings-form {
             max-width: 600px;
             margin: 0 auto;
         }
-
+        
         .settings-group {
             margin-bottom: 20px;
         }
-
+        
         .settings-group h3 {
             margin-bottom: 10px;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 5px;
         }
-
+        
         .settings-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
         }
-
+        
         .switch {
             position: relative;
             display: inline-block;
             width: 60px;
             height: 34px;
         }
-
+        
         .switch input {
             opacity: 0;
             width: 0;
             height: 0;
         }
-
+        
         .slider {
             position: absolute;
             cursor: pointer;
@@ -551,7 +391,7 @@
             transition: .4s;
             border-radius: 34px;
         }
-
+        
         .slider:before {
             position: absolute;
             content: "";
@@ -563,15 +403,15 @@
             transition: .4s;
             border-radius: 50%;
         }
-
+        
         input:checked + .slider {
             background-color: var(--primary-color);
         }
-
+        
         input:checked + .slider:before {
             transform: translateX(26px);
         }
-
+        
         /* Calendario */
         .calendar-header {
             display: flex;
@@ -579,28 +419,28 @@
             align-items: center;
             margin-bottom: 15px;
         }
-
+        
         .calendar-nav {
             display: flex;
             gap: 10px;
         }
-
+        
         .calendar-nav button {
             padding: 5px 10px;
         }
-
+        
         .calendar-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 5px;
         }
-
+        
         .calendar-day-header {
             text-align: center;
             font-weight: bold;
             padding: 5px;
         }
-
+        
         .calendar-day {
             min-height: 80px;
             padding: 5px;
@@ -608,28 +448,28 @@
             border-radius: 4px;
             transition: background-color 0.3s;
         }
-
+        
         .calendar-day:hover {
             background-color: rgba(0, 0, 0, 0.05);
         }
-
+        
         .calendar-day-number {
             font-weight: bold;
             margin-bottom: 3px;
         }
-
+        
         .calendar-day.today {
             background-color: rgba(66, 133, 244, 0.2);
         }
-
+        
         .calendar-day.has-event {
             background-color: rgba(52, 168, 83, 0.1);
         }
-
+        
         .calendar-day.other-month {
             opacity: 0.5;
         }
-
+        
         .calendar-event-dot {
             display: inline-block;
             width: 8px;
@@ -638,78 +478,106 @@
             border-radius: 50%;
             margin-right: 3px;
         }
-
+        
         @media (max-width: 768px) {
             .dashboard {
                 grid-template-columns: 1fr;
             }
-
+            
             .main-content {
                 grid-template-columns: 1fr;
             }
-
+            
             .upcoming-events {
                 grid-column: span 1;
             }
+        }
+
+        /* LOGIN STYLES - Merged from original login.html */
+        .login-card, .main-app {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            position: absolute; /* Added for centering login/app */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1001; /* Ensure login/app is on top */
+        }
+
+        .login-card h1 {
+            margin-bottom: 10px;
+        }
+
+        .login-card p {
+            margin-bottom: 20px;
+        }
+
+        .login-card input {
+            width: calc(100% - 20px); /* Adjust for padding */
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .login-card button {
+            padding: 10px 20px;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .login-card button:hover {
+            background-color: #3367d6;
+        }
+
+        #app-container {
+            display: none;
+        }
+
+        #login-error {
+            color: red;
+            margin-top: 10px;
+        }
+
+        .logout-btn {
+            margin-top: 20px;
+            background-color: #ea4335;
+        }
+
+        .logout-btn:hover {
+            background-color: #c62828;
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-<div class="login-container" id="login-screen">
-    <div class="login-card">
-        <h1>NOTEC</h1>
-        <p>Inicia sesión para acceder a tu agenda de eventos</p>
+<div id="login-screen" class="login-card">
+    <h1>NOTEC</h1>
+    <p>Inicia sesión con tu correo</p>
 
-        <div class="login-form-group">
-            <input type="email" id="email" placeholder="Correo" required>
-            <input type="password" id="password" placeholder="Contraseña" required>
-            <button onclick="loginTraditional()">Entrar</button>
-            <p style="margin-top: 15px; font-size: 0.9em;">¿No tienes cuenta? <a href="#" onclick="registerTraditional()" style="color: var(--primary-color); text-decoration: none;">Regístrate aquí</a></p>
-            <div id="login-error"></div>
-        </div>
-
-        <div class="separator">o</div>
-
-        <div id="g_id_onload"
-              data-client_id="723991656445-bi5d2hebbhunvuh6rfbjk1uoe332g4ut.apps.googleusercontent.com"
-              data-context="signin"
-              data-ux_mode="popup"
-              data-callback="handleGoogleSignIn"
-              data-auto_prompt="false">
-        </div>
-        <div class="g_id_signin"
-              data-type="standard"
-              data-shape="rectangular"
-              data-theme="outline"
-              data-text="signin_with"
-              data-size="large"
-              data-logo_alignment="left">
-        </div>
-
-        <div class="user-info" id="google-user-info" style="display: none;">
-            <img id="user-pic" src="" alt="User profile picture">
-            <div class="user-details">
-                <h3 id="user-name"></h3>
-                <p id="user-email-display"></p>
-                <button class="logout-btn" onclick="handleGoogleSignOut()">Cerrar sesión de Google</button>
-            </div>
-        </div>
-        <div class="user-info" id="traditional-user-info" style="display: none;">
-            <div class="user-details">
-                <h3>Bienvenido!</h3>
-                <p id="user-email-traditional"></p>
-                <button class="logout-btn" onclick="logoutTraditional()">Cerrar sesión</button>
-            </div>
-        </div>
-    </div>
+    <input type="email" id="email" placeholder="Correo" required>
+    <input type="password" id="password" placeholder="Contraseña" required>
+    <button onclick="login()">Entrar</button>
+    <p>¿No tienes cuenta? <a href="#" onclick="register()">Regístrate aquí</a></p>
+    <div id="login-error"></div>
 </div>
 
-<div class="app-container" id="app-container">
+<div id="main-app-content" style="display: none;">
     <div class="container">
         <h1>NOTEC</h1>
-
+        
         <div class="dashboard">
             <div class="sidebar">
                 <h2>Menú</h2>
@@ -737,8 +605,11 @@
                 <div class="menu-item" data-view="settings">
                     <i class="fas fa-cog"></i> Configuración
                 </div>
+                <div class="menu-item" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                </div>
             </div>
-
+            
             <div class="main-content">
                 <div id="dashboard-view" class="view active">
                     <div class="card stat-card">
@@ -747,39 +618,39 @@
                         <div class="stat-desc">Total Eventos</div>
                         <div class="stat-change up">↑ 5% desde el mes pasado</div>
                     </div>
-
+                    
                     <div class="card">
                         <h3>Calendario Semanal</h3>
                         <div class="week-calendar" id="week-calendar">
-                        </div>
+                            </div>
                     </div>
-
+                    
                     <div class="card stat-card">
                         <h3>Buscar...</h3>
                         <div class="stat-value">0</div>
                         <div class="stat-desc">Ver todos los eventos</div>
                         <div class="stat-change down">↓ 0% desde el mes pasado</div>
                     </div>
-
+                    
                     <div class="card stat-card">
                         <h3>Notificaciones</h3>
                         <div class="stat-value" id="total-notifications">0</div>
                         <div class="stat-change down">↓ 8% desde el mes pasado</div>
                     </div>
-
+                    
                     <div class="card upcoming-events">
                         <h3>Próximos Eventos</h3>
                         <div id="upcoming-events-list"></div>
                     </div>
                 </div>
-
+                
                 <div id="events-view" class="view">
                     <div class="card">
                         <h2>Mis Eventos</h2>
                         <div id="events-list"></div>
                     </div>
                 </div>
-
+                
                 <div id="create-event-view" class="view">
                     <div class="card event-form">
                         <h2>Crear Nuevo Evento</h2>
@@ -822,7 +693,7 @@
                         <button id="save-event"><i class="fas fa-save"></i> Guardar Evento</button>
                     </div>
                 </div>
-
+                
                 <div id="calendar-view" class="view">
                     <div class="card">
                         <div class="calendar-header">
@@ -834,26 +705,26 @@
                             </div>
                         </div>
                         <div class="calendar-grid" id="calendar-grid">
-                        </div>
+                            </div>
                     </div>
                 </div>
-
+                
                 <div id="categories-view" class="view">
                     <div class="card">
                         <h2>Categorías</h2>
                         <div class="categories-list" id="categories-list">
-                        </div>
+                            </div>
                         <button id="add-category" style="margin-top: 20px;"><i class="fas fa-plus"></i> Agregar Categoría</button>
                     </div>
                 </div>
-
+                
                 <div id="notifications-view" class="view">
                     <div class="card">
                         <h2>Notificaciones</h2>
                         <div id="notifications-list"></div>
                     </div>
                 </div>
-
+                
                 <div id="assistant-view" class="view">
                     <div class="card">
                         <h2>Asistente Virtual</h2>
@@ -868,7 +739,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <div id="settings-view" class="view">
                     <div class="card">
                         <h2>Configuración</h2>
@@ -890,7 +761,7 @@
                                     </label>
                                 </div>
                             </div>
-
+                            
                             <div class="settings-group">
                                 <h3>Alarmas</h3>
                                 <div class="settings-row">
@@ -905,7 +776,7 @@
                                     <input type="range" id="alarm-volume" min="0" max="100" value="80">
                                 </div>
                             </div>
-
+                            
                             <div class="settings-group">
                                 <h3>Apariencia</h3>
                                 <div class="settings-row">
@@ -916,7 +787,7 @@
                                     </label>
                                 </div>
                             </div>
-
+                            
                             <button id="save-settings" style="margin-top: 20px;"><i class="fas fa-save"></i> Guardar Configuración</button>
                         </div>
                     </div>
@@ -951,684 +822,21 @@
 </div>
 
 <script>
-    // Variables y Funciones de la aplicación NOTEC (Mantener si son relevantes para tu app)
-    const events = JSON.parse(localStorage.getItem('events')) || [];
-    const categories = JSON.parse(localStorage.getItem('categories')) || [{ name: 'Trabajo', color: '#4285f4' }, { name: 'Personal', color: '#34a853' }];
-    const notifications = JSON.parse(localStorage.getItem('notifications')) || [];
-    let currentView = 'dashboard';
-    let currentMonth = new Date().getMonth();
-    let currentYear = new Date().getFullYear();
-
-    function renderView(viewId) {
-        document.querySelectorAll('.view').forEach(view => {
-            view.classList.remove('active');
-        });
-        document.getElementById(viewId).classList.add('active');
-
-        document.querySelectorAll('.menu-item').forEach(item => {
-            item.classList.remove('active');
-        });
-        document.querySelector(`.menu-item[data-view="${viewId}"]`).classList.add('active');
-
-        currentView = viewId;
-        // Funciones específicas para cada vista (asegúrate de que existan)
-        if (viewId === 'dashboard') {
-            updateDashboardStats();
-            renderWeekCalendar();
-            renderUpcomingEvents();
-        } else if (viewId === 'events') {
-            renderEventsList();
-        } else if (viewId === 'calendar') {
-            renderMonthCalendar(currentYear, currentMonth);
-        } else if (viewId === 'categories') {
-            renderCategories();
-        } else if (viewId === 'notifications') {
-            renderNotifications();
-        }
-    }
-
-    function updateDashboardStats() {
-        document.getElementById('total-events').textContent = events.length;
-        document.getElementById('total-notifications').textContent = notifications.length;
-    }
-
-    // Funciones para el calendario semanal
-    function renderWeekCalendar() {
-        const weekCalendarDiv = document.getElementById('week-calendar');
-        weekCalendarDiv.innerHTML = '';
-        const today = new Date();
-        const startOfWeek = new Date(today.setDate(today.getDate() - today.getDay())); // Domingo
-        
-        for (let i = 0; i < 7; i++) {
-            const day = new Date(startOfWeek);
-            day.setDate(startOfWeek.getDate() + i);
-            const dayName = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'][day.getDay()];
-            const eventCount = events.filter(e => new Date(e.date).toDateString() === day.toDateString()).length;
-            
-            const dayDiv = document.createElement('div');
-            dayDiv.classList.add('day');
-            if (day.toDateString() === new Date().toDateString()) {
-                dayDiv.classList.add('today');
-            }
-            dayDiv.innerHTML = `<div>${dayName}</div><div class="day-count">${day.getDate()}</div><div style="font-size: 0.8em; color: var(--gray-color);">${eventCount} eventos</div>`;
-            weekCalendarDiv.appendChild(dayDiv);
-        }
-    }
-
-    // Funciones para listar eventos próximos
-    function renderUpcomingEvents() {
-        const upcomingList = document.getElementById('upcoming-events-list');
-        upcomingList.innerHTML = '';
-        const now = new Date();
-        const upcoming = events
-            .filter(event => new Date(`${event.date}T${event.time}`) >= now)
-            .sort((a, b) => new Date(`${a.date}T${a.time}`) - new Date(`${b.date}T${b.time}`))
-            .slice(0, 5); // Mostrar solo los próximos 5
-
-        if (upcoming.length === 0) {
-            upcomingList.innerHTML = '<p style="color: var(--gray-color);">No hay próximos eventos.</p>';
-            return;
-        }
-
-        upcoming.forEach(event => {
-            const eventDiv = document.createElement('div');
-            eventDiv.classList.add('event-item');
-            eventDiv.innerHTML = `
-                <h4>${event.name}</h4>
-                <p>${new Date(`${event.date}T${event.time}`).toLocaleString()}</p>
-                <p style="font-size: 0.9em; color: var(--gray-color);">${event.description}</p>
-                <div class="event-actions">
-                    <button class="edit-btn" data-id="${event.id}"><i class="fas fa-edit"></i></button>
-                    <button class="delete-btn" data-id="${event.id}"><i class="fas fa-trash-alt"></i></button>
-                </div>
-            `;
-            upcomingList.appendChild(eventDiv);
-        });
-
-        // Añadir listeners para editar y eliminar
-        upcomingList.querySelectorAll('.delete-btn').forEach(button => {
-            button.onclick = (e) => deleteEvent(e.target.dataset.id);
-        });
-        upcomingList.querySelectorAll('.edit-btn').forEach(button => {
-            button.onclick = (e) => editEvent(e.target.dataset.id);
-        });
-    }
-
-    // Funciones para la vista de todos los eventos
-    function renderEventsList() {
-        const eventsListDiv = document.getElementById('events-list');
-        eventsListDiv.innerHTML = '';
-
-        if (events.length === 0) {
-            eventsListDiv.innerHTML = '<p style="color: var(--gray-color);">No hay eventos guardados.</p>';
-            return;
-        }
-
-        events.forEach(event => {
-            const eventDiv = document.createElement('div');
-            eventDiv.classList.add('event-item');
-            eventDiv.innerHTML = `
-                <h4>${event.name}</h4>
-                <p><strong>Fecha:</strong> ${event.date} <strong>Hora:</strong> ${event.time}</p>
-                <p><strong>Categoría:</strong> ${event.category}</p>
-                <p>${event.description}</p>
-                <div class="event-actions">
-                    <button class="edit-btn" data-id="${event.id}"><i class="fas fa-edit"></i> Editar</button>
-                    <button class="delete-btn" data-id="${event.id}"><i class="fas fa-trash-alt"></i> Eliminar</button>
-                </div>
-            `;
-            eventsListDiv.appendChild(eventDiv);
-        });
-
-        eventsListDiv.querySelectorAll('.delete-btn').forEach(button => {
-            button.onclick = (e) => deleteEvent(e.target.dataset.id);
-        });
-        eventsListDiv.querySelectorAll('.edit-btn').forEach(button => {
-            button.onclick = (e) => editEvent(e.target.dataset.id);
-        });
-    }
-
-    function deleteEvent(id) {
-        if (!confirm('¿Estás seguro de que quieres eliminar este evento?')) return;
-        const index = events.findIndex(event => event.id === id);
-        if (index > -1) {
-            events.splice(index, 1);
-            localStorage.setItem('events', JSON.stringify(events));
-            renderEventsList();
-            updateDashboardStats();
-            renderWeekCalendar();
-            renderMonthCalendar(currentYear, currentMonth); // Actualizar calendario
-            renderUpcomingEvents();
-        }
-    }
-
-    function editEvent(id) {
-        const eventToEdit = events.find(event => event.id === id);
-        if (eventToEdit) {
-            // Rellenar el formulario con los datos del evento
-            document.getElementById('event-name').value = eventToEdit.name;
-            document.getElementById('event-date').value = eventToEdit.date;
-            document.getElementById('event-time').value = eventToEdit.time;
-            document.getElementById('event-description').value = eventToEdit.description;
-            document.getElementById('event-category').value = eventToEdit.category;
-            document.getElementById('event-reminder').value = eventToEdit.reminder;
-
-            // Cambiar el botón para que sea "Actualizar Evento" y asociarle una función de actualización
-            const saveButton = document.getElementById('save-event');
-            saveButton.textContent = 'Actualizar Evento';
-            saveButton.onclick = () => updateEvent(id);
-
-            renderView('create-event'); // Cambiar a la vista de crear/editar evento
-        }
-    }
-
-    function updateEvent(id) {
-        const eventIndex = events.findIndex(event => event.id === id);
-        if (eventIndex === -1) return;
-
-        const name = document.getElementById('event-name').value.trim();
-        const date = document.getElementById('event-date').value.trim();
-        const time = document.getElementById('event-time').value.trim();
-        const description = document.getElementById('event-description').value.trim();
-        const category = document.getElementById('event-category').value;
-        const reminder = document.getElementById('event-reminder').value;
-
-        if (!name || !date || !time) {
-            alert('Nombre, fecha y hora del evento son obligatorios.');
-            return;
-        }
-
-        events[eventIndex] = { id, name, date, time, description, category, reminder };
-        localStorage.setItem('events', JSON.stringify(events));
-        alert('Evento actualizado con éxito!');
-
-        // Restaurar el botón a "Guardar Evento"
-        const saveButton = document.getElementById('save-event');
-        saveButton.textContent = 'Guardar Evento';
-        saveButton.onclick = saveNewEvent; // Volver a la función de guardar nuevo
-
-        // Limpiar el formulario
-        document.getElementById('event-name').value = '';
-        document.getElementById('event-date').value = '';
-        document.getElementById('event-time').value = '';
-        document.getElementById('event-description').value = '';
-        document.getElementById('event-category').value = 'work';
-        document.getElementById('event-reminder').value = '5';
-
-        renderView('events'); // Volver a la vista de eventos
-        updateDashboardStats();
-        renderWeekCalendar();
-        renderMonthCalendar(currentYear, currentMonth); // Actualizar calendario
-        renderUpcomingEvents();
-    }
-
-    function saveNewEvent() {
-        const name = document.getElementById('event-name').value.trim();
-        const date = document.getElementById('event-date').value.trim();
-        const time = document.getElementById('event-time').value.trim();
-        const description = document.getElementById('event-description').value.trim();
-        const category = document.getElementById('event-category').value;
-        const reminder = document.getElementById('event-reminder').value;
-
-        if (!name || !date || !time) {
-            alert('Nombre, fecha y hora del evento son obligatorios.');
-            return;
-        }
-
-        const newEvent = {
-            id: Date.now().toString(), // ID único
-            name,
-            date,
-            time,
-            description,
-            category,
-            reminder
-        };
-        events.push(newEvent);
-        localStorage.setItem('events', JSON.stringify(events));
-        alert('Evento guardado con éxito!');
-
-        // Limpiar el formulario
-        document.getElementById('event-name').value = '';
-        document.getElementById('event-date').value = '';
-        document.getElementById('event-time').value = '';
-        document.getElementById('event-description').value = '';
-        document.getElementById('event-category').value = 'work';
-        document.getElementById('event-reminder').value = '5';
-
-        updateDashboardStats();
-        renderWeekCalendar();
-        renderMonthCalendar(currentYear, currentMonth); // Actualizar calendario
-        renderUpcomingEvents();
-    }
-    document.getElementById('save-event').onclick = saveNewEvent;
-
-
-    // Funciones para el calendario mensual
-    function renderMonthCalendar(year, month) {
-        const monthYearHeader = document.getElementById('calendar-month-year');
-        const calendarGrid = document.getElementById('calendar-grid');
-        calendarGrid.innerHTML = '';
-
-        const date = new Date(year, month);
-        monthYearHeader.textContent = date.toLocaleString('es-ES', { month: 'long', year: 'numeric' });
-
-        const firstDayOfMonth = new Date(year, month, 1);
-        const lastDayOfMonth = new Date(year, month + 1, 0);
-        const daysInMonth = lastDayOfMonth.getDate();
-
-        const firstDayOfWeek = firstDayOfMonth.getDay(); // 0 = Domingo, 1 = Lunes...
-
-        const dayNames = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
-        dayNames.forEach(day => {
-            const dayHeader = document.createElement('div');
-            dayHeader.classList.add('calendar-day-header');
-            dayHeader.textContent = day;
-            calendarGrid.appendChild(dayHeader);
-        });
-
-        // Días del mes anterior para rellenar
-        for (let i = 0; i < firstDayOfWeek; i++) {
-            const prevMonthDay = document.createElement('div');
-            prevMonthDay.classList.add('calendar-day', 'other-month');
-            calendarGrid.appendChild(prevMonthDay);
-        }
-
-        // Días del mes actual
-        for (let dayNum = 1; dayNum <= daysInMonth; dayNum++) {
-            const dayDiv = document.createElement('div');
-            dayDiv.classList.add('calendar-day');
-            
-            const currentDay = new Date(year, month, dayNum);
-            if (currentDay.toDateString() === new Date().toDateString()) {
-                dayDiv.classList.add('today');
-            }
-
-            const eventsOnDay = events.filter(event => {
-                const eventDate = new Date(event.date);
-                return eventDate.getFullYear() === year && 
-                       eventDate.getMonth() === month && 
-                       eventDate.getDate() === dayNum;
-            });
-
-            dayDiv.innerHTML = `<div class="calendar-day-number">${dayNum}</div>`;
-            if (eventsOnDay.length > 0) {
-                dayDiv.classList.add('has-event');
-                dayDiv.innerHTML += `<div class="calendar-event-dot"></div>`;
-            }
-            // Agrega un evento al hacer clic para ver los eventos de ese día
-            dayDiv.onclick = () => showEventsForDate(currentDay);
-            calendarGrid.appendChild(dayDiv);
-        }
-
-        // Rellenar con días del mes siguiente (si es necesario)
-        const totalCells = firstDayOfWeek + daysInMonth;
-        const remainingCells = 42 - totalCells; // 6 semanas * 7 días
-        for (let i = 0; i < remainingCells && totalCells + i < 42; i++) {
-            const nextMonthDay = document.createElement('div');
-            nextMonthDay.classList.add('calendar-day', 'other-month');
-            calendarGrid.appendChild(nextMonthDay);
-        }
-    }
-
-    function showEventsForDate(date) {
-        const eventsOnDate = events.filter(event => new Date(event.date).toDateString() === date.toDateString());
-        if (eventsOnDate.length > 0) {
-            let message = `Eventos para el ${date.toLocaleDateString('es-ES')}:\n\n`;
-            eventsOnDate.forEach(event => {
-                message += `- ${event.name} a las ${event.time} (${event.category})\n`;
-                message += `  ${event.description}\n\n`;
-            });
-            alert(message);
-        } else {
-            alert(`No hay eventos para el ${date.toLocaleDateString('es-ES')}.`);
-        }
-    }
-
-
-    document.getElementById('prev-month').onclick = () => {
-        currentMonth--;
-        if (currentMonth < 0) {
-            currentMonth = 11;
-            currentYear--;
-        }
-        renderMonthCalendar(currentYear, currentMonth);
-    };
-
-    document.getElementById('next-month').onclick = () => {
-        currentMonth++;
-        if (currentMonth > 11) {
-            currentMonth = 0;
-            currentYear++;
-        }
-        renderMonthCalendar(currentYear, currentMonth);
-    };
-
-    document.getElementById('today-btn').onclick = () => {
-        const today = new Date();
-        currentMonth = today.getMonth();
-        currentYear = today.getFullYear();
-        renderMonthCalendar(currentYear, currentMonth);
-    };
-
-
-    // Funciones para categorías
-    function renderCategories() {
-        const categoriesListDiv = document.getElementById('categories-list');
-        categoriesListDiv.innerHTML = '';
-        if (categories.length === 0) {
-            categoriesListDiv.innerHTML = '<p style="color: var(--gray-color);">No hay categorías definidas.</p>';
-            return;
-        }
-        categories.forEach(category => {
-            const categoryDiv = document.createElement('div');
-            categoryDiv.classList.add('category-card');
-            categoryDiv.style.borderColor = category.color;
-            categoryDiv.innerHTML = `
-                <h3 style="color: ${category.color};">${category.name}</h3>
-                <p>${events.filter(e => e.category === category.name.toLowerCase()).length} eventos</p>
-                <button class="delete-btn" style="background-color: var(--danger-color); padding: 5px 10px; margin-top: 10px;" data-name="${category.name}"><i class="fas fa-trash-alt"></i></button>
-            `;
-            categoriesListDiv.appendChild(categoryDiv);
-        });
-
-        categoriesListDiv.querySelectorAll('.delete-btn').forEach(button => {
-            button.onclick = (e) => deleteCategory(e.target.dataset.name);
-        });
-    }
-
-    function deleteCategory(name) {
-        if (!confirm(`¿Estás seguro de que quieres eliminar la categoría "${name}"? Los eventos asociados no serán eliminados.`)) return;
-        const index = categories.findIndex(cat => cat.name.toLowerCase() === name.toLowerCase());
-        if (index > -1) {
-            categories.splice(index, 1);
-            localStorage.setItem('categories', JSON.stringify(categories));
-            // Actualizar las opciones del select de categorías
-            updateCategorySelect();
-            renderCategories();
-        }
-    }
-
-    document.getElementById('add-category').onclick = () => {
-        document.getElementById('category-modal').style.display = 'flex';
-    };
-
-    document.getElementById('cancel-add-category').onclick = () => {
-        document.getElementById('category-modal').style.display = 'none';
-        document.getElementById('new-category-name').value = '';
-        document.getElementById('new-category-color').value = '#4285f4';
-    };
-
-    document.getElementById('confirm-add-category').onclick = () => {
-        const name = document.getElementById('new-category-name').value.trim();
-        const color = document.getElementById('new-category-color').value;
-
-        if (!name) {
-            alert('El nombre de la categoría es obligatorio.');
-            return;
-        }
-        if (categories.some(cat => cat.name.toLowerCase() === name.toLowerCase())) {
-            alert('Esa categoría ya existe.');
-            return;
-        }
-
-        categories.push({ name, color });
-        localStorage.setItem('categories', JSON.stringify(categories));
-        updateCategorySelect();
-        renderCategories();
-        document.getElementById('category-modal').style.display = 'none';
-        document.getElementById('new-category-name').value = '';
-        document.getElementById('new-category-color').value = '#4285f4';
-    };
-
-    function updateCategorySelect() {
-        const select = document.getElementById('event-category');
-        select.innerHTML = '';
-        categories.forEach(category => {
-            const option = document.createElement('option');
-            option.value = category.name.toLowerCase();
-            option.textContent = category.name;
-            select.appendChild(option);
-        });
-    }
-
-    // Funciones para notificaciones
-    function renderNotifications() {
-        const notificationsListDiv = document.getElementById('notifications-list');
-        notificationsListDiv.innerHTML = '';
-        if (notifications.length === 0) {
-            notificationsListDiv.innerHTML = '<p style="color: var(--gray-color);">No hay notificaciones.</p>';
-            return;
-        }
-        notifications.forEach(notification => {
-            const notificationDiv = document.createElement('div');
-            notificationDiv.classList.add('notification-item');
-            notificationDiv.innerHTML = `
-                <span>${notification.message}</span>
-                <button class="delete-btn" style="background-color: var(--gray-color);" data-id="${notification.id}"><i class="fas fa-times"></i></button>
-            `;
-            notificationsListDiv.appendChild(notificationDiv);
-        });
-
-        notificationsListDiv.querySelectorAll('.delete-btn').forEach(button => {
-            button.onclick = (e) => deleteNotification(e.target.dataset.id);
-        });
-    }
-
-    function deleteNotification(id) {
-        const index = notifications.findIndex(n => n.id === id);
-        if (index > -1) {
-            notifications.splice(index, 1);
-            localStorage.setItem('notifications', JSON.stringify(notifications));
-            renderNotifications();
-            updateDashboardStats();
-        }
-    }
-
-    // Funciones para asistente virtual
-    document.getElementById('send-message').onclick = () => {
-        const message = document.getElementById('user-message').value.trim();
-        if (message) {
-            addMessageToChat('user', message);
-            document.getElementById('user-message').value = '';
-            processAssistantCommand(message);
-        }
-    };
-
-    function addMessageToChat(sender, text) {
-        const chatContainer = document.getElementById('chat-container');
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add(sender === 'user' ? 'user-message' : 'assistant-message');
-        messageDiv.textContent = text;
-        chatContainer.appendChild(messageDiv);
-        chatContainer.scrollTop = chatContainer.scrollHeight; // Auto-scroll
-    }
-
-    function processAssistantCommand(command) {
-        command = command.toLowerCase();
-        let response = "Lo siento, no entiendo ese comando. Prueba 'ayuda'.";
-
-        if (command.includes('hola')) {
-            response = "¡Hola! ¿Cómo puedo ayudarte hoy con tus eventos?";
-        } else if (command.includes('ayuda')) {
-            response = "Puedo ayudarte con: 'crear evento', 'ver eventos', 'mostrar calendario', 'ajustes'.";
-        } else if (command.includes('crear evento')) {
-            response = "Claro, vamos a la sección de crear evento. Por favor, rellena los detalles allí.";
-            renderView('create-event');
-        } else if (command.includes('ver eventos') || command.includes('mostrar eventos')) {
-            response = "Aquí tienes tu lista de eventos.";
-            renderView('events');
-        } else if (command.includes('mostrar calendario') || command.includes('ver calendario')) {
-            response = "Abriendo el calendario para ti.";
-            renderView('calendar');
-        } else if (command.includes('ajustes') || command.includes('configuración')) {
-            response = "Dirigiéndome a la configuración.";
-            renderView('settings');
-        } else if (command.includes('cuantos eventos tengo')) {
-            response = `Actualmente tienes ${events.length} eventos registrados.`;
-        }
-
-        setTimeout(() => addMessageToChat('assistant', response), 500);
-    }
-
-    // Funciones para configuración y tema oscuro
-    function applySettings() {
-        // Cargar y aplicar tema oscuro
-        const darkModeEnabled = localStorage.getItem('dark-mode') === 'true';
-        document.getElementById('dark-mode').checked = darkModeEnabled;
-        if (darkModeEnabled) {
-            document.body.classList.add('dark-mode');
-        } else {
-            document.body.classList.remove('dark-mode');
-        }
-
-        // Cargar y aplicar notificaciones
-        const notificationsEnabled = localStorage.getItem('notifications-enabled') !== 'false'; // Por defecto true
-        document.getElementById('notifications-enabled').checked = notificationsEnabled;
-
-        const notificationSoundEnabled = localStorage.getItem('notification-sound') !== 'false'; // Por defecto true
-        document.getElementById('notification-sound').checked = notificationSoundEnabled;
-
-        // Cargar y aplicar alarmas
-        const alarmsEnabled = localStorage.getItem('alarms-enabled') !== 'false'; // Por defecto true
-        document.getElementById('alarms-enabled').checked = alarmsEnabled;
-
-        const alarmVolume = localStorage.getItem('alarm-volume') || '80';
-        document.getElementById('alarm-volume').value = alarmVolume;
-    }
-
-    document.getElementById('save-settings').onclick = () => {
-        localStorage.setItem('dark-mode', document.getElementById('dark-mode').checked);
-        localStorage.setItem('notifications-enabled', document.getElementById('notifications-enabled').checked);
-        localStorage.setItem('notification-sound', document.getElementById('notification-sound').checked);
-        localStorage.setItem('alarms-enabled', document.getElementById('alarms-enabled').checked);
-        localStorage.setItem('alarm-volume', document.getElementById('alarm-volume').value);
-        applySettings(); // Aplicar cambios inmediatamente
-        alert('Configuración guardada.');
-    };
-
-    // Alarma (sin audio implementado, solo overlay)
-    function checkAlarms() {
-        const alarmsEnabled = localStorage.getItem('alarms-enabled') !== 'false';
-        if (!alarmsEnabled) return;
-
-        const now = new Date();
-        events.forEach(event => {
-            const eventDateTime = new Date(`${event.date}T${event.time}`);
-            const reminderMinutes = parseInt(event.reminder);
-            const reminderTime = new Date(eventDateTime.getTime() - reminderMinutes * 60 * 1000);
-
-            // Si el recordatorio está en el futuro pero cerca (ej: +/- 1 min)
-            if (reminderTime > now && (eventDateTime.getTime() - now.getTime() < reminderMinutes * 60 * 1000 + 60000) && (reminderTime.getTime() - now.getTime() <= 1000 * 30)) { // Dentro de 30 segundos del recordatorio
-                // Prevenir múltiples alarmas para el mismo evento
-                if (!localStorage.getItem(`alarm-${event.id}`)) {
-                    showAlarm(event);
-                    localStorage.setItem(`alarm-${event.id}`, 'true'); // Marca la alarma como mostrada
-                }
-            } else if (reminderTime < now && localStorage.getItem(`alarm-${event.id}`)) {
-                // Limpiar la marca de alarma si ya pasó y fue mostrada
-                localStorage.removeItem(`alarm-${event.id}`);
-            }
-        });
-    }
-
-    function showAlarm(event) {
-        const alarmOverlay = document.getElementById('alarm-overlay');
-        document.getElementById('alarm-title').textContent = `¡RECORDATORIO: ${event.name}!`;
-        document.getElementById('alarm-message').textContent = `Tu evento "${event.name}" es el ${new Date(event.date).toLocaleDateString('es-ES')} a las ${event.time}.`;
-        alarmOverlay.style.display = 'flex';
-        // Aquí podrías reproducir un sonido si tuvieras un elemento <audio>
-        // const audio = new Audio('ruta/a/tu/sonido.mp3');
-        // audio.volume = parseFloat(localStorage.getItem('alarm-volume') || '0.8') / 100;
-        // audio.play();
-    }
-
-    document.getElementById('stop-alarm').onclick = () => {
-        document.getElementById('alarm-overlay').style.display = 'none';
-        // Detener sonido si se está reproduciendo
-    };
-
-    // Event listeners para la navegación de vistas
-    document.querySelectorAll('.menu-item').forEach(item => {
-        item.addEventListener('click', function() {
-            renderView(this.dataset.view);
-        });
-    });
-
-
-    // --- LÓGICA DE AUTENTICACIÓN ---
-
-    // Función para decodificar el JWT de Google
-    function parseJwt(token) {
-        const base64Url = token.split('.')[1];
-        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
-        return JSON.parse(jsonPayload);
-    }
-
-    // Manejador para el login de Google
-    function handleGoogleSignIn(response) {
-        const userData = parseJwt(response.credential);
-        
-        // Ocultar los campos de login tradicional
-        document.querySelector('.login-form-group').style.display = 'none';
-        document.querySelector('.separator').style.display = 'none';
-        document.querySelector('.g_id_signin').style.display = 'none'; // Oculta el botón de Google
-
-        // Mostrar información del usuario de Google
-        document.getElementById('google-user-info').classList.add('google-logged-in');
-        document.getElementById('user-pic').src = userData.picture;
-        document.getElementById('user-name').textContent = userData.name;
-        document.getElementById('user-email-display').textContent = userData.email;
-
-        // Guardar datos del usuario de Google en localStorage
-        localStorage.setItem('googleUser', JSON.stringify(userData));
-        localStorage.removeItem('sessionUser'); // Asegurarse de que no haya sesión tradicional al mismo tiempo
-
-        // Mostrar la aplicación
-        showApp();
-    }
-
-    // Manejador para el logout de Google
-    function handleGoogleSignOut() {
-        google.accounts.id.disableAutoSelect(); // Para prevenir auto-login
-        localStorage.removeItem('googleUser');
-        localStorage.removeItem('sessionUser'); // Limpia también la sesión tradicional
-        location.reload(); // Recarga la página para volver a la pantalla de login
-    }
-
-    // Manejador para el login tradicional
-    function loginTraditional() {
+    // Login/Register Logic
+    function login() {
         const email = document.getElementById("email").value.trim();
         const pass = document.getElementById("password").value.trim();
         const users = JSON.parse(localStorage.getItem("users")) || {};
-        const loginErrorDiv = document.getElementById("login-error");
 
         if (users[email] && users[email] === pass) {
             localStorage.setItem("sessionUser", email);
-            localStorage.removeItem('googleUser'); // Asegurarse de que no haya sesión de Google al mismo tiempo
-            loginErrorDiv.textContent = "";
-            
-            // Ocultar el botón de Google y el formulario tradicional
-            document.querySelector('.login-form-group').style.display = 'none';
-            document.querySelector('.separator').style.display = 'none';
-            document.querySelector('.g_id_signin').style.display = 'none';
-            document.getElementById('google-user-info').style.display = 'none';
-
-            // Mostrar información del usuario tradicional
-            document.getElementById('traditional-user-info').style.display = 'flex';
-            document.getElementById('user-email-traditional').textContent = email;
-
-            showApp();
+            showApp(email);
         } else {
-            loginErrorDiv.textContent = "Correo o contraseña incorrectos.";
+            document.getElementById("login-error").textContent = "Correo o contraseña incorrectos.";
         }
     }
 
-    // Manejador para el registro tradicional
-    function registerTraditional() {
+    function register() {
         const email = prompt("Ingresa tu correo:")?.trim();
         const pass = prompt("Elige una contraseña:")?.trim();
 
@@ -1648,82 +856,759 @@
         }
     }
 
-    // Manejador para el logout tradicional
-    function logoutTraditional() {
+    function logout() {
         localStorage.removeItem("sessionUser");
-        localStorage.removeItem('googleUser'); // Limpia también la sesión de Google
-        location.reload(); // Recarga la página
+        location.reload();
     }
 
-    // Función para mostrar la aplicación principal
-    function showApp() {
-        document.getElementById('login-screen').style.display = 'none';
-        document.getElementById('app-container').style.display = 'block';
-        applySettings(); // Aplica las preferencias de configuración al iniciar la app
-        updateCategorySelect(); // Asegura que las categorías estén cargadas en el formulario
-        updateDashboardStats();
-        renderWeekCalendar();
-        renderMonthCalendar(currentYear, currentMonth);
-        renderUpcomingEvents();
-        checkAlarmsInterval = setInterval(checkAlarms, 10000); // Revisa alarmas cada 10 segundos
+    function showApp(email) {
+        document.getElementById("login-screen").style.display = "none";
+        document.getElementById("main-app-content").style.display = "block";
+        // If you had a user-info display in the app, you'd update it here
+        // document.getElementById("user-email").textContent = email; // Example from old login.html
     }
 
-    // Lógica para verificar sesión al cargar la página
-    window.onload = () => {
-        const googleUser = localStorage.getItem('googleUser');
-        const traditionalUser = localStorage.getItem('sessionUser');
-        
-        if (googleUser) {
-            const userData = JSON.parse(googleUser);
-            // Si hay un usuario de Google, se muestra su info y se esconde el login
-            document.getElementById('login-screen').style.display = 'none';
-            document.getElementById('google-user-info').classList.add('google-logged-in'); // Muestra la sección de info de Google
-            document.getElementById('user-pic').src = userData.picture;
-            document.getElementById('user-name').textContent = userData.name;
-            document.getElementById('user-email-display').textContent = userData.email;
-            
-            // Oculta los elementos de login para evitar que se muestren junto con la info del usuario
-            document.querySelector('.login-form-group').style.display = 'none';
-            document.querySelector('.separator').style.display = 'none';
-            document.querySelector('.g_id_signin').style.display = 'none';
-
-            showApp();
-        } else if (traditionalUser) {
-            // Si hay un usuario tradicional, se muestra su info y se esconde el login
-            document.getElementById('login-screen').style.display = 'none';
-            document.getElementById('traditional-user-info').style.display = 'flex'; // Muestra la sección de info tradicional
-            document.getElementById('user-email-traditional').textContent = traditionalUser;
-            
-            // Oculta los elementos de login
-            document.querySelector('.login-form-group').style.display = 'none';
-            document.querySelector('.separator').style.display = 'none';
-            document.querySelector('.g_id_signin').style.display = 'none';
-
-            showApp();
-        } else {
-            // No hay sesión, muestra la pantalla de login
-            document.getElementById('login-screen').style.display = 'flex';
-            document.getElementById('app-container').style.display = 'none';
-        }
-    };
-
-    // Inicializar el script de Google Identity Services (GSI)
-    // Esto es importante para que el botón de Google se renderice correctamente
-    // y para que `google.accounts.id.disableAutoSelect()` funcione.
-    // Aunque ya está en el HTML, a veces es bueno asegurar su inicialización.
-    if (typeof google !== 'undefined' && google.accounts && google.accounts.id) {
-        google.accounts.id.initialize({
-            client_id: "723991656445-bi5d2hebbhunvuh6rfbjk1uoe332g4ut.apps.googleusercontent.com",
-            callback: handleGoogleSignIn
+    // PWA Configuration
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => {
+                    console.log('ServiceWorker registrado con éxito:', registration.scope);
+                    
+                    // Solicitar permisos para notificaciones
+                    if ('Notification' in window) {
+                        Notification.requestPermission().then(permission => {
+                            console.log('Permiso de notificación:', permission);
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.log('Error al registrar el ServiceWorker:', error);
+                });
         });
-        google.accounts.id.renderButton(
-            document.querySelector(".g_id_signin"),
-            { type: "standard", size: "large", text: "signin_with", shape: "rectangular", theme: "outline", logo_alignment: "left" }
-        );
+    }
+    
+    // Variables globales
+    let events = [];
+    let notifications = [];
+    let categories = [
+        { id: 1, name: 'Trabajo', color: '#4285f4', icon: 'briefcase' },
+        { id: 2, name: 'Personal', color: '#34a853', icon: 'user' },
+        { id: 3, name: 'Familia', color: '#ea4335', icon: 'users' },
+        { id: 4, name: 'Salud', color: '#fbbc05', icon: 'heartbeat' }
+    ];
+    let settings = {
+        notificationsEnabled: true,
+        notificationSound: true,
+        alarmsEnabled: true,
+        alarmVolume: 80,
+        darkMode: false
+    };
+    let alarmAudio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3');
+    let reminderTimeouts = [];
+    let currentCalendarDate = new Date(); // For calendar navigation
+    
+    // DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', function() {
+        const sessionUser = localStorage.getItem("sessionUser");
+        if (sessionUser) {
+            showApp(sessionUser);
+            loadSettings();
+            loadCategories();
+            loadEvents();
+            initMenu();
+            initEventForm();
+            initAssistant();
+            initSettings();
+            initCalendar();
+            initWeekCalendar();
+            checkForUpcomingEvents();
+            
+            // Show initial view
+            document.getElementById('dashboard-view').classList.add('active');
+            updateEventCount();
+            updateNotificationCount();
+            
+            // Check for events every minute
+            setInterval(checkForUpcomingEvents, 60000);
+        } else {
+            document.getElementById("login-screen").style.display = "block";
+            document.getElementById("main-app-content").style.display = "none";
+        }
+    });
+    
+    // Load settings from localStorage
+    function loadSettings() {
+        const savedSettings = localStorage.getItem('notec-settings');
+        if (savedSettings) {
+            settings = JSON.parse(savedSettings);
+            applySettings();
+        }
+    }
+    
+    // Apply settings
+    function applySettings() {
+        document.getElementById('notifications-enabled').checked = settings.notificationsEnabled;
+        document.getElementById('notification-sound').checked = settings.notificationSound;
+        document.getElementById('alarms-enabled').checked = settings.alarmsEnabled;
+        document.getElementById('alarm-volume').value = settings.alarmVolume;
+        document.getElementById('dark-mode').checked = settings.darkMode;
+        
+        if (settings.darkMode) {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+        }
+        
+        alarmAudio.volume = settings.alarmVolume / 100;
+    }
+    
+    // Load categories from localStorage
+    function loadCategories() {
+        const savedCategories = localStorage.getItem('notec-categories');
+        if (savedCategories) {
+            categories = JSON.parse(savedCategories);
+        }
+    }
+    
+    // Save categories to localStorage
+    function saveCategories() {
+        localStorage.setItem('notec-categories', JSON.stringify(categories));
     }
 
-    let checkAlarmsInterval; // Para controlar el intervalo de las alarmas
+    // Load events from localStorage
+    function loadEvents() {
+        const storedEvents = localStorage.getItem('notec-events');
+        if (storedEvents) {
+            events = JSON.parse(storedEvents);
+            // Ensure dates are Date objects
+            events.forEach(event => {
+                event.dateTime = new Date(event.dateTime);
+            });
+            renderEvents();
+            renderUpcomingEvents();
+            setupReminders();
+        }
+    }
 
+    // Save events to localStorage
+    function saveEvents() {
+        localStorage.setItem('notec-events', JSON.stringify(events));
+        renderEvents();
+        renderUpcomingEvents();
+        updateEventCount();
+        initWeekCalendar(); // Refresh week calendar
+        renderCalendar(); // Refresh full calendar
+    }
+
+    // Initialize menu
+    function initMenu() {
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.menu-item').forEach(mi => mi.classList.remove('active'));
+                this.classList.add('active');
+                
+                document.querySelectorAll('.view').forEach(view => view.classList.remove('active'));
+                const viewId = this.dataset.view;
+                document.getElementById(`${viewId}-view`).classList.add('active');
+                
+                // Specific updates for each view
+                if (viewId === 'events') {
+                    renderEvents();
+                } else if (viewId === 'calendar') {
+                    renderCalendar();
+                } else if (viewId === 'categories') {
+                    renderCategories();
+                } else if (viewId === 'notifications') {
+                    renderNotifications();
+                }
+            });
+        });
+    }
+
+    // Initialize event form
+    function initEventForm() {
+        document.getElementById('save-event').addEventListener('click', function() {
+            const name = document.getElementById('event-name').value.trim();
+            const date = document.getElementById('event-date').value;
+            const time = document.getElementById('event-time').value;
+            const description = document.getElementById('event-description').value.trim();
+            const category = document.getElementById('event-category').value;
+            const reminder = parseInt(document.getElementById('event-reminder').value);
+
+            if (!name || !date || !time) {
+                alert('Nombre del evento, fecha y hora son obligatorios.');
+                return;
+            }
+
+            const dateTime = new Date(`${date}T${time}`);
+            const newEvent = {
+                id: Date.now(),
+                name,
+                dateTime,
+                description,
+                category,
+                reminder,
+                completed: false
+            };
+            events.push(newEvent);
+            saveEvents();
+            alert('Evento guardado exitosamente.');
+            document.getElementById('event-name').value = '';
+            document.getElementById('event-date').value = '';
+            document.getElementById('event-time').value = '';
+            document.getElementById('event-description').value = '';
+            
+            // Automatically switch to events view
+            document.querySelector('.menu-item[data-view="events"]').click();
+        });
+    }
+
+    // Render events list
+    function renderEvents() {
+        const eventsList = document.getElementById('events-list');
+        eventsList.innerHTML = '';
+        if (events.length === 0) {
+            eventsList.innerHTML = '<p>No hay eventos registrados.</p>';
+            return;
+        }
+        events.sort((a, b) => a.dateTime - b.dateTime); // Sort by date
+        events.forEach(event => {
+            const categoryObj = categories.find(cat => cat.name.toLowerCase() === event.category.toLowerCase()) || { color: '#ccc' };
+            const eventDiv = document.createElement('div');
+            eventDiv.classList.add('event-item');
+            eventDiv.style.borderLeftColor = categoryObj.color;
+            eventDiv.innerHTML = `
+                <div>
+                    <strong>${event.name}</strong> (${categoryObj.name})<br>
+                    Fecha: ${event.dateTime.toLocaleDateString()} Hora: ${event.dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                    <p>${event.description || 'Sin descripción'}</p>
+                </div>
+                <div class="event-actions">
+                    <button class="edit-btn" onclick="editEvent(${event.id})"><i class="fas fa-edit"></i></button>
+                    <button class="delete-btn" onclick="deleteEvent(${event.id})"><i class="fas fa-trash"></i></button>
+                </div>
+            `;
+            eventsList.appendChild(eventDiv);
+        });
+    }
+
+    // Edit Event
+    function editEvent(id) {
+        const eventToEdit = events.find(event => event.id === id);
+        if (eventToEdit) {
+            const newName = prompt('Editar nombre del evento:', eventToEdit.name);
+            if (newName !== null) {
+                eventToEdit.name = newName.trim();
+                saveEvents();
+            }
+        }
+    }
+
+    // Delete Event
+    function deleteEvent(id) {
+        if (confirm('¿Estás seguro de que quieres eliminar este evento?')) {
+            events = events.filter(event => event.id !== id);
+            saveEvents();
+        }
+    }
+
+    // Render Upcoming Events for Dashboard
+    function renderUpcomingEvents() {
+        const upcomingEventsList = document.getElementById('upcoming-events-list');
+        upcomingEventsList.innerHTML = '';
+        const now = new Date();
+        const futureEvents = events.filter(event => event.dateTime > now)
+                                   .sort((a, b) => a.dateTime - b.dateTime)
+                                   .slice(0, 5); // Show only top 5 upcoming events
+
+        if (futureEvents.length === 0) {
+            upcomingEventsList.innerHTML = '<p>No hay próximos eventos.</p>';
+            return;
+        }
+
+        futureEvents.forEach(event => {
+            const categoryObj = categories.find(cat => cat.name.toLowerCase() === event.category.toLowerCase()) || { color: '#ccc' };
+            const eventDiv = document.createElement('div');
+            eventDiv.classList.add('event-item');
+            eventDiv.style.borderLeftColor = categoryObj.color;
+            eventDiv.innerHTML = `
+                <div>
+                    <strong>${event.name}</strong> (${categoryObj.name})<br>
+                    Fecha: ${event.dateTime.toLocaleDateString()} Hora: ${event.dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                </div>
+            `;
+            upcomingEventsList.appendChild(eventDiv);
+        });
+    }
+
+    // Update event count on dashboard
+    function updateEventCount() {
+        document.getElementById('total-events').textContent = events.length;
+    }
+
+    // Setup reminders
+    function setupReminders() {
+        // Clear existing timeouts to prevent duplicates
+        reminderTimeouts.forEach(timeoutId => clearTimeout(timeoutId));
+        reminderTimeouts = [];
+
+        const now = new Date();
+        events.forEach(event => {
+            if (event.completed) return; // Don't set reminders for completed events
+
+            const reminderTime = new Date(event.dateTime.getTime() - event.reminder * 60 * 1000);
+            const timeDiff = reminderTime.getTime() - now.getTime();
+
+            if (timeDiff > 0) {
+                const timeoutId = setTimeout(() => {
+                    triggerReminder(event);
+                }, timeDiff);
+                reminderTimeouts.push(timeoutId);
+            } else if (event.dateTime.getTime() > now.getTime() - 60000 && event.dateTime.getTime() < now.getTime() + 60000) {
+                // If event is happening now or just passed (within 1 min), trigger alarm
+                triggerAlarm(event);
+            }
+        });
+    }
+
+    // Trigger reminder notification
+    function triggerReminder(event) {
+        if (settings.notificationsEnabled) {
+            const title = `Recordatorio: ${event.name}`;
+            const body = `Tu evento está a punto de comenzar. Es el ${event.dateTime.toLocaleDateString()} a las ${event.dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}.`;
+            sendNotification(title, body);
+            addNotification(title, body);
+        }
+        if (settings.alarmsEnabled) {
+            triggerAlarm(event);
+        }
+    }
+
+    // Trigger alarm
+    function triggerAlarm(event) {
+        if (!settings.alarmsEnabled) return;
+
+        document.getElementById('alarm-overlay').style.display = 'flex';
+        document.getElementById('alarm-title').textContent = `¡ALARMA: ${event.name}!`;
+        document.getElementById('alarm-message').textContent = `Es hora de tu evento. Fecha: ${event.dateTime.toLocaleDateString()} Hora: ${event.dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+        
+        if (settings.notificationSound) {
+            alarmAudio.play();
+        }
+
+        document.getElementById('stop-alarm').onclick = () => {
+            alarmAudio.pause();
+            alarmAudio.currentTime = 0;
+            document.getElementById('alarm-overlay').style.display = 'none';
+        };
+    }
+
+    // Send web notification
+    function sendNotification(title, body) {
+        if ('Notification' in window && Notification.permission === 'granted') {
+            navigator.serviceWorker.ready.then(registration => {
+                registration.showNotification(title, {
+                    body: body,
+                    icon: '/icons/icon-192x192.png',
+                    vibrate: [200, 100, 200]
+                });
+            });
+        }
+    }
+
+    // Add notification to list
+    function addNotification(title, body) {
+        const newNotification = {
+            id: Date.now(),
+            title: title,
+            body: body,
+            timestamp: new Date()
+        };
+        notifications.unshift(newNotification); // Add to the beginning
+        if (notifications.length > 20) { // Keep only latest 20 notifications
+            notifications = notifications.slice(0, 20);
+        }
+        saveNotifications();
+        updateNotificationCount();
+    }
+
+    // Load notifications
+    function loadNotifications() {
+        const savedNotifications = localStorage.getItem('notec-notifications');
+        if (savedNotifications) {
+            notifications = JSON.parse(savedNotifications).map(n => ({
+                ...n,
+                timestamp: new Date(n.timestamp)
+            }));
+        }
+    }
+
+    // Save notifications
+    function saveNotifications() {
+        localStorage.setItem('notec-notifications', JSON.stringify(notifications));
+    }
+
+    // Render notifications
+    function renderNotifications() {
+        const notificationsList = document.getElementById('notifications-list');
+        notificationsList.innerHTML = '';
+        if (notifications.length === 0) {
+            notificationsList.innerHTML = '<p>No hay notificaciones.</p>';
+            return;
+        }
+        notifications.forEach(notification => {
+            const notifDiv = document.createElement('div');
+            notifDiv.classList.add('notification-item');
+            notifDiv.innerHTML = `
+                <div>
+                    <strong>${notification.title}</strong><br>
+                    <small>${notification.timestamp.toLocaleString()}</small>
+                    <p>${notification.body}</p>
+                </div>
+            `;
+            notificationsList.appendChild(notifDiv);
+        });
+    }
+
+    // Update notification count on dashboard
+    function updateNotificationCount() {
+        document.getElementById('total-notifications').textContent = notifications.length;
+    }
+
+    // Check for upcoming events and reminders
+    function checkForUpcomingEvents() {
+        const now = new Date();
+        // Triggering reminders based on event time and reminder setting
+        events.forEach(event => {
+            if (event.completed) return;
+
+            const eventTime = new Date(event.dateTime);
+            const reminderTime = new Date(eventTime.getTime() - event.reminder * 60 * 1000);
+
+            // Check if reminder time is in the past, but close to now
+            if (reminderTime <= now && now < eventTime && !event.reminderSent) {
+                triggerReminder(event);
+                event.reminderSent = true; // Mark as sent
+                saveEvents(); // Save the updated event status
+            }
+        });
+        renderUpcomingEvents(); // Refresh upcoming events list
+    }
+
+    // Initialize calendar view
+    function initCalendar() {
+        document.getElementById('prev-month').addEventListener('click', () => {
+            currentCalendarDate.setMonth(currentCalendarDate.getMonth() - 1);
+            renderCalendar();
+        });
+        document.getElementById('next-month').addEventListener('click', () => {
+            currentCalendarDate.setMonth(currentCalendarDate.getMonth() + 1);
+            renderCalendar();
+        });
+        document.getElementById('today-btn').addEventListener('click', () => {
+            currentCalendarDate = new Date();
+            renderCalendar();
+        });
+        renderCalendar();
+    }
+
+    // Render the full monthly calendar
+    function renderCalendar() {
+        const monthYearDisplay = document.getElementById('calendar-month-year');
+        const calendarGrid = document.getElementById('calendar-grid');
+        calendarGrid.innerHTML = ''; // Clear existing days
+
+        const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        const dayNames = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
+
+        monthYearDisplay.textContent = `${monthNames[currentCalendarDate.getMonth()]} ${currentCalendarDate.getFullYear()}`;
+
+        // Add day headers
+        dayNames.forEach(dayName => {
+            const dayHeader = document.createElement('div');
+            dayHeader.classList.add('calendar-day-header');
+            dayHeader.textContent = dayName;
+            calendarGrid.appendChild(dayHeader);
+        });
+
+        // Get first day of the month and last day of the month
+        const firstDayOfMonth = new Date(currentCalendarDate.getFullYear(), currentCalendarDate.getMonth(), 1);
+        const lastDayOfMonth = new Date(currentCalendarDate.getFullYear(), currentCalendarDate.getMonth() + 1, 0);
+
+        // Calculate days to show from previous month
+        const startDay = firstDayOfMonth.getDay(); // 0 for Sunday, 1 for Monday, etc.
+        const prevMonthLastDay = new Date(currentCalendarDate.getFullYear(), currentCalendarDate.getMonth(), 0).getDate();
+
+        for (let i = 0; i < startDay; i++) {
+            const dayDiv = document.createElement('div');
+            dayDiv.classList.add('calendar-day', 'other-month');
+            dayDiv.textContent = prevMonthLastDay - startDay + 1 + i;
+            calendarGrid.appendChild(dayDiv);
+        }
+
+        // Add days of current month
+        for (let day = 1; day <= lastDayOfMonth.getDate(); day++) {
+            const dayDiv = document.createElement('div');
+            dayDiv.classList.add('calendar-day');
+            
+            const dayNumberSpan = document.createElement('span');
+            dayNumberSpan.classList.add('calendar-day-number');
+            dayNumberSpan.textContent = day;
+            dayDiv.appendChild(dayNumberSpan);
+
+            const currentDate = new Date(currentCalendarDate.getFullYear(), currentCalendarDate.getMonth(), day);
+            const today = new Date();
+
+            if (currentDate.toDateString() === today.toDateString()) {
+                dayDiv.classList.add('today');
+            }
+
+            const eventsOnThisDay = events.filter(event => {
+                const eventDate = new Date(event.dateTime);
+                return eventDate.getFullYear() === currentDate.getFullYear() &&
+                       eventDate.getMonth() === currentDate.getMonth() &&
+                       eventDate.getDate() === currentDate.getDate();
+            });
+
+            if (eventsOnThisDay.length > 0) {
+                dayDiv.classList.add('has-event');
+                const eventDot = document.createElement('span');
+                eventDot.classList.add('calendar-event-dot');
+                dayDiv.appendChild(eventDot);
+            }
+
+            calendarGrid.appendChild(dayDiv);
+        }
+
+        // Add days of next month to fill the grid
+        const totalCells = startDay + lastDayOfMonth.getDate();
+        const remainingCells = 42 - totalCells; // Ensure 6 rows for consistency
+        for (let i = 1; i <= remainingCells; i++) {
+            const dayDiv = document.createElement('div');
+            dayDiv.classList.add('calendar-day', 'other-month');
+            dayDiv.textContent = i;
+            calendarGrid.appendChild(dayDiv);
+        }
+    }
+
+    // Initialize week calendar for dashboard
+    function initWeekCalendar() {
+        const weekCalendarDiv = document.getElementById('week-calendar');
+        weekCalendarDiv.innerHTML = '';
+        const today = new Date();
+        const dayNames = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
+
+        for (let i = 0; i < 7; i++) {
+            const currentDay = new Date(today);
+            currentDay.setDate(today.getDate() + i);
+
+            const eventsOnThisDay = events.filter(event => {
+                const eventDate = new Date(event.dateTime);
+                return eventDate.toDateString() === currentDay.toDateString();
+            });
+
+            const dayDiv = document.createElement('div');
+            dayDiv.classList.add('day');
+            if (i === 0) { // Highlight today
+                dayDiv.style.backgroundColor = 'rgba(66, 133, 244, 0.2)';
+            }
+            dayDiv.innerHTML = `
+                <div>${dayNames[currentDay.getDay()]}</div>
+                <div class="day-count">${eventsOnThisDay.length}</div>
+            `;
+            weekCalendarDiv.appendChild(dayDiv);
+        }
+    }
+
+    // Render categories list
+    function renderCategories() {
+        const categoriesList = document.getElementById('categories-list');
+        categoriesList.innerHTML = '';
+        categories.forEach(category => {
+            const categoryCard = document.createElement('div');
+            categoryCard.classList.add('category-card');
+            categoryCard.style.backgroundColor = category.color; // Set background to category color
+            categoryCard.style.color = 'white'; // Ensure text is visible
+            categoryCard.innerHTML = `
+                <h3><i class="fas fa-${category.icon}"></i> ${category.name}</h3>
+                <button onclick="editCategory(${category.id})" class="edit-btn" style="background-color: white; color: ${category.color};"><i class="fas fa-edit"></i></button>
+                <button onclick="deleteCategory(${category.id})" class="delete-btn" style="background-color: white; color: var(--danger-color); margin-left: 5px;"><i class="fas fa-trash"></i></button>
+            `;
+            categoriesList.appendChild(categoryCard);
+        });
+    }
+
+    // Add Category
+    document.getElementById('add-category').addEventListener('click', () => {
+        document.getElementById('category-modal').style.display = 'flex';
+    });
+
+    document.getElementById('cancel-add-category').addEventListener('click', () => {
+        document.getElementById('category-modal').style.display = 'none';
+        document.getElementById('new-category-name').value = '';
+        document.getElementById('new-category-color').value = '#4285f4';
+    });
+
+    document.getElementById('confirm-add-category').addEventListener('click', () => {
+        const newCategoryName = document.getElementById('new-category-name').value.trim();
+        const newCategoryColor = document.getElementById('new-category-color').value;
+
+        if (!newCategoryName) {
+            alert('El nombre de la categoría es obligatorio.');
+            return;
+        }
+        
+        // Simple icon assignment for new categories
+        const newCategory = {
+            id: Date.now(),
+            name: newCategoryName,
+            color: newCategoryColor,
+            icon: 'folder' 
+        };
+        categories.push(newCategory);
+        saveCategories();
+        renderCategories();
+        document.getElementById('category-modal').style.display = 'none';
+        document.getElementById('new-category-name').value = '';
+        document.getElementById('new-category-color').value = '#4285f4';
+    });
+
+    // Edit Category
+    function editCategory(id) {
+        const categoryToEdit = categories.find(cat => cat.id === id);
+        if (categoryToEdit) {
+            const newName = prompt('Editar nombre de la categoría:', categoryToEdit.name);
+            if (newName !== null) {
+                categoryToEdit.name = newName.trim();
+                saveCategories();
+                renderCategories();
+            }
+        }
+    }
+
+    // Delete Category
+    function deleteCategory(id) {
+        if (confirm('¿Estás seguro de que quieres eliminar esta categoría? Los eventos asociados a ella no cambiarán de categoría automáticamente.')) {
+            categories = categories.filter(cat => cat.id !== id);
+            saveCategories();
+            renderCategories();
+        }
+    }
+
+    // Initialize Assistant
+    function initAssistant() {
+        document.getElementById('send-message').addEventListener('click', sendMessage);
+        document.getElementById('user-message').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    }
+
+    function sendMessage() {
+        const userMessage = document.getElementById('user-message').value.trim();
+        if (userMessage === '') return;
+
+        appendMessage('user', userMessage);
+        document.getElementById('user-message').value = '';
+
+        // Simple AI response
+        let assistantResponse = "Lo siento, no entendí tu solicitud. Intenta preguntar sobre 'eventos', 'crear', 'calendario', 'categorías' o 'configuración'.";
+
+        if (userMessage.toLowerCase().includes('hola') || userMessage.toLowerCase().includes('saludo')) {
+            assistantResponse = "¡Hola! ¿Cómo puedo ayudarte con tus eventos y tareas?";
+        } else if (userMessage.toLowerCase().includes('eventos')) {
+            assistantResponse = "Puedes ver todos tus eventos en la sección 'Eventos'. ¿Te gustaría que te muestre los próximos eventos?";
+            setTimeout(() => {
+                document.querySelector('.menu-item[data-view="events"]').click();
+            }, 1000);
+        } else if (userMessage.toLowerCase().includes('crear evento')) {
+            assistantResponse = "Claro, para crear un nuevo evento ve a la sección 'Crear Evento'.";
+            setTimeout(() => {
+                document.querySelector('.menu-item[data-view="create-event"]').click();
+            }, 1000);
+        } else if (userMessage.toLowerCase().includes('calendario')) {
+            assistantResponse = "El calendario te permite ver tus eventos por mes. Iré allí para ti.";
+            setTimeout(() => {
+                document.querySelector('.menu-item[data-view="calendar"]').click();
+            }, 1000);
+        } else if (userMessage.toLowerCase().includes('categorías')) {
+            assistantResponse = "Puedes organizar tus eventos por categorías. Te muestro tus categorías.";
+            setTimeout(() => {
+                document.querySelector('.menu-item[data-view="categories"]').click();
+            }, 1000);
+        } else if (userMessage.toLowerCase().includes('configuración') || userMessage.toLowerCase().includes('ajustes')) {
+            assistantResponse = "Puedes personalizar Notec en la sección de 'Configuración'.";
+            setTimeout(() => {
+                document.querySelector('.menu-item[data-view="settings"]').click();
+            }, 1000);
+        } else if (userMessage.toLowerCase().includes('recordatorio')) {
+            assistantResponse = "Para establecer recordatorios, puedes hacerlo al crear o editar un evento.";
+        } else if (userMessage.toLowerCase().includes('tema oscuro')) {
+            settings.darkMode = !settings.darkMode;
+            applySettings();
+            assistantResponse = settings.darkMode ? "¡Tema oscuro activado! Espero que te guste." : "Tema oscuro desactivado. Volvemos al claro.";
+            // Also update the setting in the UI
+            document.getElementById('dark-mode').checked = settings.darkMode;
+            saveSettings(); // Save the updated setting
+        } else if (userMessage.toLowerCase().includes('logout') || userMessage.toLowerCase().includes('cerrar sesión')) {
+            assistantResponse = "Claro, cerrando tu sesión. ¡Vuelve pronto!";
+            setTimeout(() => {
+                logout();
+            }, 1500);
+        }
+
+
+        setTimeout(() => {
+            appendMessage('assistant', assistantResponse);
+        }, 500);
+    }
+
+    function appendMessage(sender, message) {
+        const chatContainer = document.getElementById('chat-container');
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add(sender + '-message');
+        messageDiv.textContent = message;
+        chatContainer.appendChild(messageDiv);
+        chatContainer.scrollTop = chatContainer.scrollHeight; // Scroll to bottom
+    }
+
+    // Initialize Settings
+    function initSettings() {
+        document.getElementById('notifications-enabled').addEventListener('change', function() {
+            settings.notificationsEnabled = this.checked;
+            saveSettings();
+        });
+        document.getElementById('notification-sound').addEventListener('change', function() {
+            settings.notificationSound = this.checked;
+            saveSettings();
+        });
+        document.getElementById('alarms-enabled').addEventListener('change', function() {
+            settings.alarmsEnabled = this.checked;
+            saveSettings();
+        });
+        document.getElementById('alarm-volume').addEventListener('input', function() {
+            settings.alarmVolume = this.value;
+            alarmAudio.volume = settings.alarmVolume / 100;
+            saveSettings();
+        });
+        document.getElementById('dark-mode').addEventListener('change', function() {
+            settings.darkMode = this.checked;
+            applySettings();
+            saveSettings();
+        });
+
+        document.getElementById('save-settings').addEventListener('click', function() {
+            saveSettings();
+            alert('Configuración guardada.');
+        });
+    }
+
+    // Save settings
+    function saveSettings() {
+        localStorage.setItem('notec-settings', JSON.stringify(settings));
+    }
 </script>
 
 </body>
